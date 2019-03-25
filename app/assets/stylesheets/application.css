@@ -19,8 +19,19 @@
  #title{
    font-size: 8em;
    text-align: center;
+   margin-top: 15px;
  }
 #menu{
   font-size:3em;
+  padding-top: 20px;
+  padding-left: 10px;
+}
 
+header{
+  background-color: #ADD8E6;
+  height: 120px;
+
+}
+body{
+  margin-top: 20px;
 }

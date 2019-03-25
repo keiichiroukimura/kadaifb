@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Image:</strong>
+<strong>Image:</strong>
   <%= image_tag @feed.image.url if @feed.image.url %>
   <%= @feed.content if @feed.content%>
-</p>
-
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+  <%= link_to 'Edit', edit_feed_path(@feed) %>
+  <%= link_to 'Back', feeds_path %>

@@ -33,14 +33,12 @@ class FeedsController < ApplicationController
       if @feed.save
         format.html { redirect_to @feed, notice: '載せたよ〜！' }
         format.json { render :show, status: :created, location: @feed }
-
       else
         format.html { render :new }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
   end
-
   # PATCH/PUT /feeds/1
   # PATCH/PUT /feeds/1.json
   def update
@@ -50,14 +48,12 @@ class FeedsController < ApplicationController
       if @feed.update(feed_params)
         format.html { redirect_to @feed, notice: 'edit〜！' }
         format.json { render :show, status: :ok, location: @feed }
-
       else
         format.html { render :edit }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
   end
-
   # DELETE /feeds/1
   # DELETE /feeds/1.json
   def destroy
@@ -74,12 +70,9 @@ class FeedsController < ApplicationController
       @feed = Feed.new
     end
   end
-
   def confirm
     @feed = Feed.new(feed_params)
-
   end
-
     private
     def ensure_correct_user
       if @feed.user_id != current_user.id
@@ -89,7 +82,6 @@ class FeedsController < ApplicationController
     def set_feed
       @feed = Feed.find(params[:id])
     end
-
     def feed_params
       params.require(:feed).permit(:image, :image_cache,:content)
     end
