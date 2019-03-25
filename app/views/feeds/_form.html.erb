@@ -11,9 +11,7 @@
     </div>
   <% end %>
 <% end %>
-
-<%= form_with(model: feed, local: true, url: confirm_feeds_path) do |form| %>
-
+<%= form_with(model: feed, local: true, url: choose_new_or_edit) do |form| %>
   <div class="field">
     <%= form.label :image %>
     <!-- 確認画面から新規作成画面に戻った時に、 -->
@@ -21,6 +19,11 @@
     <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
+    <%= @feed.content if @feed.content%>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+
+
   </div>
 
   <div class="actions">

@@ -2,7 +2,8 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @feed.image.url %>
+  <%= image_tag @feed.image.url if @feed.image.url %>
+  <%= @feed.content if @feed.content%>
 </p>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |

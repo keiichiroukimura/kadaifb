@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
+<h1>All jackets</h1>
 
 <table>
   <thead>
@@ -10,16 +10,19 @@
     </tr>
   </thead>
 
-  <tbody>
+  <body>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.image %></td>
+        <td><%= feed.user.name %></td>
+        <td><%= image_tag feed.image.to_s %></td>
         <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed) =%></td>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= feed.content %></td>
+
       </tr>
     <% end %>
-  </tbody>
+  </body>
 </table>
 
 <br>
