@@ -30,8 +30,10 @@
 header{
   background-color: #ADD8E6;
   height: 120px;
-
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 body{
-  margin-top: 20px;
+  margin-top: 0;
 }

@@ -1,24 +1,26 @@
-<h1>All jackets</h1>
-  <div class="panel">
-  <%= link_to '新規投稿',new_feed_path,class: "btn btn-success" %>
-  </div>
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <body>
-    <% @feeds.each do |feed| %>
+<section id="sectionall">
+  <h1>All Records</h1>
+
+      <%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
+
+</section>
+  <table id="contents">
+    <head>
       <tr>
-        <td><%= feed.user.name %></td>
-        <td><%= image_tag feed.image.to_s %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) =%></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= feed.content %></td>
+        <th>Image</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </body>
-</table>
+    </head>
+    <body>
+      <% @feeds.each do |feed| %>
+        <tr>
+          <td><%= feed.user.name %></td>
+          <td><%= image_tag feed.image.to_s %></td>
+          <td><%= link_to 'Show', feed %></td>
+          <td><%= link_to 'Edit', edit_feed_path(feed) =%></td>
+          <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= feed.content %></td>
+        </tr>
+      <% end %>
+    </body>
+  </table>
