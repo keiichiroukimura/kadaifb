@@ -1,26 +1,25 @@
 <section id="sectionall">
   <h1>All Records</h1>
-
-      <%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
-
+  <%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
 </section>
-  <table id="contents">
-    <head>
-      <tr>
-        <th>Image</th>
-        <th colspan="3"></th>
-      </tr>
-    </head>
-    <body>
+  <body>
       <% @feeds.each do |feed| %>
-        <tr>
-          <td><%= feed.user.name %></td>
-          <td><%= image_tag feed.image.to_s %></td>
-          <td><%= link_to 'Show', feed %></td>
-          <td><%= link_to 'Edit', edit_feed_path(feed) =%></td>
-          <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= feed.content %></td>
-        </tr>
+ 　　　　　<div class="contents">
+ 　　　　　<div id="image">
+          <%= image_tag feed.image.to_s %>
+          </div>
+          <div id="posts">
+          <br>
+          <%= "投稿者:"%><%=feed.user.name %>
+          <br>
+          <%= link_to 'Show', feed %>
+          <br>
+          <%= link_to 'Edit', edit_feed_path(feed) =%>
+          <br>
+          <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br>
+          <%= "コメント:"%><%= feed.content %>
+          </div>
+          </div>
       <% end %>
-    </body>
-  </table>
+  </body>
