@@ -1,7 +1,6 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update,:destroy]
   before_action :ensure_correct_user,{only: [:edit, :update,:destroy,]}
-  before_action :login_required,only: [:index]
   def index
     @feeds = Feed.all
   end
@@ -53,11 +52,6 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
   end
   private
-  def login_required
-    redirect_to user unless @current_user
-  end
-
-
   def ensure_correct_user
     if @feed.user_id != current_user.id
       redirect_to feeds_path , notice: '編集できません!'
