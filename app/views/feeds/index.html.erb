@@ -4,23 +4,18 @@
 </section>
   <body>
       <% @feeds.each do |feed| %>
- 　　　　　<div class="contents">
- 　　　　　<div id="image">
-          <%= image_tag feed.image.to_s %>
-          </div>
-          <div id="posts">
-          <br>
-          <%= "投稿者:"%><%=feed.user.name %>
-          <br>
-          <% if feed.user_id == current_user.id %>
-          <%= link_to 'Show', feed %>
-          <br>
-          <%= link_to 'Edit', edit_feed_path(feed) %>
-          <br>
-          <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          <%= "コメント:"%><%= feed.content %>
-          </div>
-          </div>
+      <div class="contents">
+        <div id="image">
+        <%= image_tag feed.image.to_s %>
+        </div>
+        <div id="posts">
+        <br>
+        <%= "投稿者:"%><%=feed.user.name %>
+        <br>
+        <%= link_to 'Show', feed %>
+        <br>
+        <%= "コメント:"%><%= feed.content %>
+        </div>
+      </div>
       <% end %>
   </body>
