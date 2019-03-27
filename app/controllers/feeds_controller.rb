@@ -12,15 +12,15 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    respond_to do |format|
-      if @feed.save
-        format.html { redirect_to @feed, notice: '載せたよ〜！' }
-        format.json { render :show, status: :created, location: @feed }
-      else
-        format.html { render :new }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @feed.save
+          format.html { redirect_to @feed, notice: '載せたよ〜！' }
+          format.json { render :show, status: :created, location: @feed }
+        else
+          format.html { render :new }
+          format.json { render json: @feed.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
   def update
     @feed.user_id = current_user.id
@@ -56,7 +56,7 @@ class FeedsController < ApplicationController
     if @feed.user_id != current_user.id
       redirect_to feeds_path , notice: '編集できません!'
     end
-  end  
+  end
   def set_feed
     @feed = Feed.find(params[:id])
   end
