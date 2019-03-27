@@ -12,12 +12,13 @@
           <br>
           <%= "投稿者:"%><%=feed.user.name %>
           <br>
+          <% if feed.user_id == current_user.id %>
           <%= link_to 'Show', feed %>
           <br>
-          <%= link_to 'Edit', edit_feed_path(feed) =%>
+          <%= link_to 'Edit', edit_feed_path(feed) %>
           <br>
           <%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <br>
+          <% end %>
           <%= "コメント:"%><%= feed.content %>
           </div>
           </div>

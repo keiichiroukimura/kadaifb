@@ -16,19 +16,19 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  gem 'pry-rails'
- gem 'better_errors'
- gem 'binding_of_caller'
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+gem 'capybara', '~> 2.13'
+gem 'selenium-webdriver'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'binding_of_caller'
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+gem 'web-console', '>= 3.3.0'
+gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'spring'
+gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
