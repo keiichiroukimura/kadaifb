@@ -4,14 +4,23 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.all
   end
+
   def show; end
+
   def new
-     @feed = Feed.new(feed_params)
+    if
+      params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
+
   def edit; end
+
   def create
     @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    #@feed.user_id == current_user.id
       respond_to do |format|
         if @feed.save
           format.html { redirect_to @feed, notice: '載せたよ〜！' }
@@ -22,8 +31,9 @@ class FeedsController < ApplicationController
         end
       end
   end
+
   def update
-    @feed.user_id = current_user.id
+    @feed.user_id == current_user.id
     respond_to do |format|
       if @feed.update(feed_params)
         format.html { redirect_to @feed, notice: 'edit〜！' }
@@ -34,6 +44,7 @@ class FeedsController < ApplicationController
       end
     end
   end
+
   def destroy
     @feed.destroy
     respond_to do |format|
@@ -41,25 +52,23 @@ class FeedsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def new
-    if params[:back]
-      @feed = Feed.new(feed_params)
-    else
-      @feed = Feed.new
-    end
-  end
+
   def confirm
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.new(feed_params)
+    render :new if @feed.invalid?
   end
+
   private
   def ensure_correct_user
     if @feed.user_id != current_user.id
       redirect_to feeds_path , notice: '編集できません!'
     end
   end
+
   def set_feed
     @feed = Feed.find(params[:id])
   end
+
   def feed_params
     params.require(:feed).permit(:image, :image_cache,:content)
   end
