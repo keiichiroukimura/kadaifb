@@ -1,22 +1,63 @@
 // Place all the styles related to the feeds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1{
+h1 {
   padding-top: 0;
   margin-top:0;
   margin-bottom: 0;
 }
-#sectionall{
-  position:fixed;
-  width: 300px;
+
+p {
+  margin-top:10px;
+}
+
+#sectionall {
+  width: 230px;
+  position: fixed;
   margin-top: 0;
   background-color: #F5F5F5
 }
-#image{
+
+#image {
   margin-top: 50px;
+  margin-left: 10px;
 }
+
 .contents{
   background-color: #F5F5F5;
   margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width:300px;
+  height: 280px;
+}
 
+#newrecord {
+  text-align: center;
+}
+
+.field {
+  text-align: center;
+}
+
+#file_button {
+  text-align: center;
+}
+
+input[type=file] {
+    display: block;
+    margin:0 auto;
+}
+
+a.btn.btn-info {
+  margin-top:5px;
+  margin-left: 10px;
+}
+
+#posts {
+  font-size: 17px;
+}
+
+#registration {
+  text-align: center;
 }

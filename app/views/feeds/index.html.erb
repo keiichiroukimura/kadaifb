@@ -3,19 +3,18 @@
   <%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
 </section>
   <body>
-      <% @feeds.each do |feed| %>
+    <% @feeds.each do |feed| %>
       <div class="contents">
         <div id="image">
-        <%= image_tag feed.image.to_s %>
+          <%= image_tag feed.image.to_s %>
         </div>
         <div id="posts">
-        <br>
-        <%= "投稿者:"%><%=feed.user.name %>
-        <br>
-        <%= link_to 'Show', feed %>
-        <br>
-        <%= "コメント:"%><%= feed.content %>
+          <%= "投稿者:"%><%=feed.user.name %>
+          <br>
+          <%= "コメント:"%><%= feed.content %>
+          <br>
+          <%= link_to 'Show', feed, class: "btn btn-info" %>
         </div>
       </div>
-      <% end %>
+    <% end %>
   </body>

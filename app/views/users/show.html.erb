@@ -1,8 +1,10 @@
-<p>name:<%= @user.name %></p>
-<p>email: <%= @user.email %></p>
-<html>
+<section id = "mypage">
+  <p>name:<%= @user.name %></p>
+  <p>email: <%= @user.email %></p>
+  <html>
     <body>
-  　　　　<%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
-        <%= link_to "投稿一覧", feeds_path, class: 'btn btn-success' %>
+      <%= link_to "新規投稿", new_feed_path, class: 'btn btn-success' %>
+      <%= link_to "投稿一覧", feeds_path, class: 'btn btn-success' %>
     </body>
-</html>
+  </html>
+</section>

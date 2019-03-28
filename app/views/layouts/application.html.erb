@@ -8,23 +8,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <header>
-    <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <section id ="menu">
-      <% if logged_in? %>
-        <%= link_to "Profile", user_path(current_user.id) %>
-        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Login", new_session_path %>
+    <header>
+    <div id = "title">JAKE BOOK</div>
+      <section id ="menu">
+        <% if logged_in? %>
+          <%= link_to "Profile", user_path(current_user.id),class: 'btn btn-success' %>
+          <%= link_to "Logout", session_path(current_user.id), method: :delete,class: 'btn btn-success' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_path, class: 'btn btn-success' %>
+          <%= link_to "Login", new_session_path, class: 'btn btn-success' %>
+        <% end %>
+      </section>
+      <section id = "notice">
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
-    </section>
-    <ul id ="title">
-      <li>JAKE BOOK</li>
-    </ul>
-  </header>
-    <%= yield %>
+      </section>
+    </header>
+      <%= yield %>
   </body>
 </html>
