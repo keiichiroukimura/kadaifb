@@ -19,8 +19,8 @@ class FeedsController < ApplicationController
   def edit; end
 
   def create
-    @feed = Feed.new(feed_params)
-    #@feed.user_id == current_user.id
+    #@feed = Feed.new(feed_params)
+    @feed = current_user.feeds.new(feed_params)#@feed.user_id == current_user.id
       respond_to do |format|
         if @feed.save
           format.html { redirect_to @feed, notice: '載せたよ〜！' }
